@@ -1,0 +1,13 @@
+
+
+.playlists {
+  list-style: none;
+
+  .playlist {
+    display: inline-block;
+    width: 15em;
+    height: 15em;
+    background-color: #492a43;
+    margin: 15px;
+  }
+}

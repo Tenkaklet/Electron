@@ -1,1 +1,0 @@
-var path=require("path"),express=require("express"),app=express();app.use(express.static(__dirname)),app.get("/",function(e,p){p.sendfile(__dirname+"index.html")}),app.listen(3333);

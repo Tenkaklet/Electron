@@ -5,25 +5,32 @@ SC.initialize({
   redirect_uri: 'http://localhost:3333/#!/callback.html'
 });
 
-app.controller('HomeCtrl', ['$scope', 'PlaylistByName', function ($scope, PlaylistByName) {
+app.controller('searchCtrl', ['$scope', '$location', function ($scope, $location) {
 
-  SC.connect()
-  .then(function() {
-    return SC.get('/me');
-  })
-  .then(function(me) {
-    console.log(me);
-    alert('Hello' + me.username);
-  });
+  // This grabs the input and then will then display artist, track, playlist on seperat page.
+    $scope.search = function (data) {
+    console.log(data);
+    $location.path('/results/' + data);
+  };
+}])
 
-
+.controller('HomeCtrl', ['$scope', 'PlaylistByName', function ($scope, PlaylistByName) {
 
   PlaylistByName.findName('operation-pegasus')
   .then(function (res) {
     console.log(res);
   });
+
 }])
 
-.controller('AboutCtrl', ['$scope', function ($scope) {
-  console.log($scope + 1);
+.controller('ResultsCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
+  console.log($routeParams);
+}])
+
+.controller('FeaturedCtrl', ['$scope', 'Playlist', function ($scope, Playlist) {
+  Playlist.findPlaylist()
+      .then(function (playlist) {
+          console.log(playlist);
+          $scope.playlist = playlist;
+      });
 }]);

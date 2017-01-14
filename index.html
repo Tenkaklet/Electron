@@ -4,7 +4,7 @@
     <title>Meowser</title>
 
     <!-- <link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css"/> -->
-    <link rel="stylesheet" href="http://bootswatch.com/flatly/bootstrap.min.css"/>
+    <link rel="stylesheet" href="http://bootswatch.com/journal/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/main.css">
 
     <script src="node_modules/angular/angular.min.js"></script>
@@ -30,12 +30,7 @@
 
 </head>
 <body>
-  <!-- sidebar -->
-  <nav class="sidebar">
-
-  </nav>
-  <main class="main-window">
-    <nav class="navbar navbar-default" role="navigation">
+    <nav class="navbar navbar-default" role="navigation" ng-controller="searchCtrl">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
@@ -49,24 +44,24 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class=""><a href="#!/featured">Featured</a></li>
             <li><a href="#"></a></li>
 
           </ul>
-          <form class="navbar-form navbar-right" role="search">
+          <form class="navbar-form navbar-right" role="search" ng-submit="search(data)">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
+              <input type="text" class="form-control" placeholder="Search" ng-model="data">
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <div class="container">
+    <div class="container-fluid">
         <ng-view>
             <h1>Loading...</h1>
         </ng-view>
-        <div plangular="http://soundcloud.com/max-carlquist/youll-never-leave-me-alone">
+        <!-- <div plangular="http://soundcloud.com/max-carlquist/youll-never-leave-me-alone">
           <h3>{{track.user.username}} - {{track.title}}</h3>
           <a ng-href="{{track.permalink_url}}">View on SoundCloud</a>
           <button ng-click="playPause()">Play/Pause</button>
@@ -74,8 +69,7 @@
           <progress ng-value="currentTime / duration || 0">
           {{ currentTime / duration || 0 }}
         </progress>
-        </div>
+        </div> -->
     </div>
-  </main>
 </body>
 </html>

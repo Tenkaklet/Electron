@@ -1,5 +1,5 @@
 html, body {
-  background-color: #34495E; }
+  background-color: #FFF; }
 
 .main-window {
   margin-left: 250px; }
@@ -8,6 +8,15 @@ html, body {
   height: 100%;
   position: fixed;
   width: 250px;
-  background-color: #2C3E50; }
+  background-color: #ecf0f1; }
+
+.playlists {
+  list-style: none; }
+  .playlists .playlist {
+    display: inline-block;
+    width: 15em;
+    height: 15em;
+    background-color: #492a43;
+    margin: 15px; }
 
 /*# sourceMappingURL=main.css.map */
