@@ -1,8 +1,13 @@
 
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+$mainFont: 'Roboto', sans-serif;
+
 $mainBg: #FFF;
 
 html, body {
   background-color: $mainBg;
+  font-family: $mainFont;
 }
 
 .main-window {

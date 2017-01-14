@@ -2,9 +2,20 @@
 <ul class="playlists">
     <li class="playlist" ng-repeat="playlist in playlist">
         <!-- Here to show a playlist with the image as a background (When hovering, show a play button) with a title and description below it.  -->
-
-    </li>
-    <li class="playlist">
-
+        <div class="card">
+          <div class="overlay">
+            <!-- play button -->
+            <div class="playback">
+              <a ng-click="gotTo(playlist)"><i class="fa fa-play-circle-o"></i></a>
+              <!-- <p class="small">Created: <span>{{playlist.created_at | amDateFormat:'MMMM Do YYYY'}}</span>
+              </p> -->
+            </div>
+          </div>
+          <img ng-src="{{image || playlist.artwork_url}}" alt="">
+        </div>
+        <ul class="description">
+          <li class="title"><h5>{{playlist.title | limitTo: 50}} ...</h5></li>
+          <li class="user"><h6>{{playlist.user.username}}</h6></li>
+        </ul>
     </li>
 </ul>

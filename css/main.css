@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 html, body {
-  background-color: #FFF; }
+  background-color: #FFF;
+  font-family: "Roboto", sans-serif; }
 
 .main-window {
   margin-left: 250px; }
@@ -8,15 +10,57 @@ html, body {
   height: 100%;
   position: fixed;
   width: 250px;
-  background-color: #ecf0f1; }
+  background-color: #ecf0f1;
+  z-index: 2;
+  left: -250px;
+  transition: all 0.4s ease-in-out;
+  padding: 10px; }
+
+.show {
+  border: 1px solid #000;
+  left: 0px; }
 
 .playlists {
   list-style: none; }
   .playlists .playlist {
+    position: relative;
     display: inline-block;
     width: 15em;
     height: 15em;
-    background-color: #492a43;
     margin: 15px; }
+    .playlists .playlist img {
+      width: 100%;
+      border-radius: 10px; }
+    .playlists .playlist .overlay {
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      border-radius: 10px;
+      transition: all 0.2s ease-in-out;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .playlists .playlist .overlay .playback {
+        color: #FFF;
+        text-align: center; }
+        .playlists .playlist .overlay .playback a {
+          cursor: pointer;
+          text-decoration: none;
+          color: #FFF;
+          font-size: 60px; }
+    .playlists .playlist .description {
+      padding-left: 0px;
+      list-style: none; }
+      .playlists .playlist .description .title h5 {
+        margin: 0px; }
+      .playlists .playlist .description .user h6 {
+        margin: 0px; }
+    .playlists .playlist .card:hover .overlay {
+      opacity: 1; }
+
+.navbar-custom {
+  margin: 0; }
 
 /*# sourceMappingURL=main.css.map */

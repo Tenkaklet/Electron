@@ -3,4 +3,13 @@
   position: fixed;
   width: 250px;
   background-color: #ecf0f1;
+  z-index: 2;
+  left: -250px;
+  transition: all 0.4s ease-in-out;
+  padding: 10px;
+}
+
+.show {
+  border: 1px solid #000;
+  left: 0px;
 }

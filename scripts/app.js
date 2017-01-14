@@ -1,7 +1,7 @@
 
 
 
-var app = angular.module('app', ['ngRoute', 'ngMaterial', 'ngAnimate', 'plangular']);
+var app = angular.module('app', ['ngRoute', 'ngMaterial', 'ngAnimate', 'plangular', 'angularMoment']);
 
 app.config(function ($routeProvider, $locationProvider, plangularConfigProvider) {
   plangularConfigProvider.clientId = 'c4406f6ecae1bc714e536b66d0bbf74d';
@@ -18,6 +18,9 @@ app.config(function ($routeProvider, $locationProvider, plangularConfigProvider)
   .when('/featured', {
     templateUrl: './scripts/featured/featured.html',
     controller: 'FeaturedCtrl'
+  })
+  .when('/player/:music', {
+    controller: 'playerCtrl'
   })
   .otherwise({
     redirectTo: '/'
