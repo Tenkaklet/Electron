@@ -1,0 +1,11 @@
+{
+	"version": 3,
+	"file": "main.css",
+	"sources": [
+		"../sass/main.scss",
+		"../sass/utilities.scss",
+		"../sass/sidebar.scss"
+	],
+	"mappings": "ACGA,AAAA,IAAI,EAAE,AAAA,IAAI,CAAC;EACT,gBAAgB,EAHT,OAAO,GAIf;;AAED,AAAA,YAAY,CAAC;EACX,WAAW,EAAE,KAAM,GACpB;;ACTD,AAAA,QAAQ,CAAC;EACP,MAAM,EAAE,IAAK;EACb,QAAQ,EAAE,KAAM;EAChB,KAAK,EAAE,KAAM;EACb,gBAAgB,EAAE,OAAQ,GAC3B",
+	"names": []
+}

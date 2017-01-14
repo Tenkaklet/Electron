@@ -1,2 +1,13 @@
-body {
-  background-color: #5127a4; }
+html, body {
+  background-color: #34495E; }
+
+.main-window {
+  margin-left: 250px; }
+
+.sidebar {
+  height: 100%;
+  position: fixed;
+  width: 250px;
+  background-color: #2C3E50; }
+
+/*# sourceMappingURL=main.css.map */

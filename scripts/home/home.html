@@ -1,12 +1,1 @@
 <h1><a href="#!/about" class="btn btn-success btn-lg">Go Here!</a></h1>
-
-
-<div plangular="http://soundcloud.com/max-carlquist/youll-never-leave-me-alone">
-  <h3>{{track.user.username}} - {{track.title}}</h3>
-  <a ng-href="{{track.permalink_url}}">View on SoundCloud</a>
-  <button ng-click="playPause()">Play/Pause</button>
-  <small>{{ currentTime | hhmmss }} | {{ duration | hhmmss }}</small>
-  <progress ng-value="currentTime / duration || 0">
-  {{ currentTime / duration || 0 }}
-</progress>
-</div>
