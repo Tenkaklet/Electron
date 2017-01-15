@@ -1,12 +1,15 @@
 .sidebar {
   height: 100%;
   position: fixed;
-  width: 250px;
+  width: 300px;
   background-color: #ecf0f1;
   z-index: 2;
-  left: -250px;
+  left: -300px;
   transition: all 0.4s ease-in-out;
-  padding: 10px;
+  padding: 15px;
+  p {
+    word-wrap: break-word;
+  }
 }
 
 .show {
