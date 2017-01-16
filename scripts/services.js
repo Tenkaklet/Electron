@@ -30,3 +30,9 @@ service.factory('PlaylistByName', ['$http', function ($http){
     }
   };
 }]);
+
+service.factory('query', [ function (){
+  return {
+    name: ''
+  };
+}]);

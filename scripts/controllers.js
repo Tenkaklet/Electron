@@ -23,7 +23,7 @@ app.controller('searchCtrl', ['$scope', '$location', '$window', function ($scope
   console.log($routeParams);
 }])
 
-.controller('FeaturedCtrl', ['$scope', 'Playlist', '$rootScope', function ($scope, Playlist, $rootScope) {
+.controller('FeaturedCtrl', ['$scope', 'Playlist', '$rootScope', 'query', function ($scope, Playlist, $rootScope, query) {
   Playlist.findPlaylist()
       .then(function (playlist) {
           $scope.playlist = playlist;
@@ -34,17 +34,25 @@ app.controller('searchCtrl', ['$scope', '$location', '$window', function ($scope
           }
           $scope.gotTo = function (playlist) {
             console.log(playlist.permalink_url);
-            $rootScope.music = playlist.permalink_url;
+            query.name = playlist.permalink_url;
+            // $rootScope.music = playlist.permalink_url;
+            $rootScope.music = playlist;
             $rootScope.content = true;
           };
       });
 }])
 
-.controller('playerCtrl', ['$scope', 'PlaylistByName', '$location', '$rootScope', function ($scope, PlaylistByName, $location, $rootScope) {
+.controller('playerCtrl', ['$scope', 'PlaylistByName', '$location', '$rootScope', 'query', function ($scope, PlaylistByName, $location, $rootScope, query) {
   // $rootScope.content = true;
+  $scope.start = function () {
+    $scope.link = 'http://soundcloud.com/maria-da-paz-oliveira/sets/funk';
+  };
   $scope.$watch('music', function (input) {
     console.log(input);
-    $scope.link = input;
+    console.log(query.name);
+    // query.name = $scope.link;
+    // $scope.link = input;
+
   });
   $scope.close = function () {
     $rootScope.content = false;

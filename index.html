@@ -64,7 +64,7 @@
     <section class="sidebar" ng-controller="playerCtrl" ng-class="{'show': content}">
       <a ng-click="close()">X</a>
       <p>{{link}}</p>
-      <div plangular="{{link}}">
+      <div plangular="{{link}}" ng-init="start()">
         <h3>{{track.user.username}} - {{track.title}}</h3>
         <a ng-href="{{track.permalink_url}}">View on SoundCloud</a>
         <button ng-click="playPause()">Play/Pause</button>
@@ -72,9 +72,9 @@
         <progress ng-value="currentTime / duration || 0">
         {{ currentTime / duration || 0 }}
       </progress>
-      <div ng-if="!track">
-        No song!
-      </div>
+        <div ng-if="!track">
+          No song!
+        </div>
       </div>
     </section>
     <div class="container-fluid">
