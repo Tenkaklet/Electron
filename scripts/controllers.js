@@ -7,7 +7,7 @@ var app = angular.module('app');
 
 app.controller('searchCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
 
-  // This grabs the input and then will then display artist, track, playlist on seperat page.
+  // This grabs the input and then will then display artist, track, playlist on seperate page.
     $scope.search = function (data) {
     console.log(data);
     $location.path('/results/' + data);
@@ -19,12 +19,30 @@ app.controller('searchCtrl', ['$scope', '$location', '$window', function ($scope
 
 }])
 
-.controller('ResultsCtrl', ['$scope', '$routeParams', '$location', '$rootScope', function ($scope, $routeParams, $location, $rootScope) {
+.controller('ResultsCtrl', ['$scope', '$routeParams', '$location', '$rootScope', 'Soundcloud', function ($scope, $routeParams, $location, $rootScope, Soundcloud) {
   console.log($routeParams);
+  $scope.searched = $routeParams.search;
+  // Get the Tracks
+  Soundcloud.track($routeParams.search)
+  .then(function (res) {
+    console.log('TRACKS --> ', res);
+  });
+
+  // Get the Playlists
+  Soundcloud.playlist($routeParams.search)
+  .then(function (res) {
+    console.log('PLAYLISTS --> ', res);
+  });
+
+  // Get the Users
+  Soundcloud.user($routeParams.search)
+  .then(function (res) {
+    console.log('USERS --> ', res);
+  });
 }])
 
-.controller('FeaturedCtrl', ['$scope', 'Playlist', '$rootScope', 'query', function ($scope, Playlist, $rootScope, query) {
-  Playlist.findPlaylist()
+.controller('FeaturedCtrl', ['$scope', 'Playlist', '$rootScope', 'query', 'Soundcloud', function ($scope, Playlist, $rootScope, query, Soundcloud) {
+  Soundcloud.featuredPlaylist()
       .then(function (playlist) {
           $scope.playlist = playlist;
           for (var x in playlist) {
