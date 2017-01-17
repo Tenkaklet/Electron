@@ -38,10 +38,12 @@ app.controller('searchCtrl', ['$scope', '$location', '$window', function ($scope
   Soundcloud.user($routeParams.search)
   .then(function (res) {
     console.log('USERS --> ', res);
+    $scope.artists = res;
   });
 }])
 
 .controller('FeaturedCtrl', ['$scope', 'Playlist', '$rootScope', 'query', 'Soundcloud', function ($scope, Playlist, $rootScope, query, Soundcloud) {
+
   Soundcloud.featuredPlaylist()
       .then(function (playlist) {
           $scope.playlist = playlist;
@@ -58,6 +60,12 @@ app.controller('searchCtrl', ['$scope', '$location', '$window', function ($scope
             $rootScope.content = true;
           };
       });
+
+      Soundcloud.playlist()
+      .then(function (res) {
+        console.log('res', res);
+      });
+
 }])
 
 .controller('playerCtrl', ['$scope', 'PlaylistByName', '$location', '$rootScope', 'query', function ($scope, PlaylistByName, $location, $rootScope, query) {
@@ -69,7 +77,7 @@ app.controller('searchCtrl', ['$scope', '$location', '$window', function ($scope
     console.log(input);
     console.log(query.name);
     // query.name = $scope.link;
-    // $scope.link = input;
+    $scope.link = input;
 
   });
   $scope.close = function () {
